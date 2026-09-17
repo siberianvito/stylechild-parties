@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { WHY } from "@/lib/data";
+import { WHY, BRAND } from "@/lib/data";
 import { asset } from "@/lib/asset";
 import { fireConfetti } from "./Confetti";
 import { Reveal, Sticker } from "./ui";
@@ -14,6 +14,8 @@ export default function WhyUs() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const firedRef = useRef(false);
   const [ready, setReady] = useState(false);
+  const [left, setLeft] = useState(12);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const v = videoRef.current;
@@ -27,6 +29,10 @@ export default function WhyUs() {
     );
     io.observe(v);
     const onTime = () => {
+      // the party runs 12s, then the logo holds for ~1.2s
+      const FILM = 12;
+      setLeft(Math.max(0, Math.min(FILM, Math.ceil(FILM - v.currentTime))));
+      setProgress(Math.min(1, v.currentTime / FILM));
       if (v.currentTime >= CONFETTI_AT && !firedRef.current) {
         firedRef.current = true;
         const r = v.getBoundingClientRect();
@@ -43,7 +49,7 @@ export default function WhyUs() {
 
   return (
     <section id="why" className="relative overflow-hidden bg-white pb-24 pt-4 sm:pb-32">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:gap-14">
+      <div className="mx-auto grid max-w-7xl items-start gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:gap-14">
         {/* film */}
         <Reveal className="relative lg:col-span-7">
           <div className="spray-frame relative overflow-hidden rounded-[2rem] bg-cream shadow-[0_30px_80px_rgba(15,15,15,0.14)]">
@@ -63,9 +69,45 @@ export default function WhyUs() {
             {!ready && (
               <img src={asset("/media/hero-poster.jpg")} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover" />
             )}
-            <span className="tag-block absolute left-5 top-5 bg-pink font-display text-xs tracking-widest sm:text-sm">
-              A StyleChild party, in 12 seconds
-            </span>
+            {/* countdown tag */}
+            <div className="absolute left-5 top-5 flex items-center gap-2">
+              <span className="tag-block bg-pink font-display text-xs tracking-widest sm:text-sm">
+                A StyleChild party in
+              </span>
+              <span
+                aria-live="off"
+                className="grid h-10 w-10 place-items-center rounded-full border-[3px] border-white bg-orange font-display text-lg text-white shadow-lg"
+              >
+                {left}
+              </span>
+              <span className="eyebrow rounded-full bg-white/85 px-2 py-1 text-[0.6rem] text-ink/70 backdrop-blur">
+                sec
+              </span>
+            </div>
+            {/* progress bar */}
+            <div className="absolute inset-x-0 bottom-0 h-1.5 bg-white/40">
+              <div
+                className="h-full bg-gradient-to-r from-orange via-pink to-purple"
+                style={{ width: `${progress * 100}%` }}
+              />
+            </div>
+          </div>
+
+          {/* contact the office */}
+          <div className="card mt-6 flex flex-col gap-5 p-6 sm:flex-row sm:items-center sm:p-7">
+            <div className="flex-1">
+              <h3 className="font-display text-2xl text-ink sm:text-3xl">{WHY.contact.title}</h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-ink/70">{WHY.contact.body}</p>
+              <p className="mt-2 text-xs font-bold text-ink/45">{WHY.contact.note}</p>
+            </div>
+            <div className="flex shrink-0 flex-col gap-2 sm:items-end">
+              <a href={BRAND.phoneHref} className="btn btn-orange w-full sm:w-auto">
+                <span aria-hidden>📞</span> {WHY.contact.cta} · {BRAND.phone}
+              </a>
+              <a href="#book" className="text-sm font-extrabold text-pink underline-offset-4 hover:underline">
+                {WHY.contact.cta2} →
+              </a>
+            </div>
           </div>
           <Sticker kind="smile" className="floaty absolute -left-5 -top-5 hidden w-16 md:block" style={{ ["--r" as string]: "-10deg" }} />
           <Sticker kind="star" className="floaty absolute -bottom-6 -right-4 hidden w-14 md:block" style={{ ["--r" as string]: "12deg", animationDelay: "-2s" }} />

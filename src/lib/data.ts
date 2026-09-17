@@ -76,6 +76,13 @@ export const WHY = {
     { icon: "🎂", title: "Any age, any occasion", body: "Birthdays, playdates, days off, team parties and camp weeks, ages 5 to 13 and beyond." },
   ],
   proof: ["500+ parties", "Boca Raton since 2019", "Fully hosted"],
+  contact: {
+    title: "Let's plan it together.",
+    body: "Our Boca Raton party team is one call away. Tell us the date, the age and the vibe, and we'll map out the whole day with you, from the custom kicks bar to the last piece of confetti. No pressure, no homework. Just a plan you'll love.",
+    cta: "Call Now",
+    cta2: "Or send us the details",
+    note: "Real people answer. We reply to messages within one business day.",
+  },
 };
 
 export const INCLUDED = {
