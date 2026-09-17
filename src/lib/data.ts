@@ -1,0 +1,175 @@
+// ─────────────────────────────────────────────────────────────
+// StyleChild Parties — single source of truth for copy + NAP.
+// Real business info pulled from stylechild.com footer.
+// ─────────────────────────────────────────────────────────────
+
+export const BRAND = {
+  name: "StyleChild",
+  legal: "StylechildbyJL",
+  tagline: "Kick Up Your Party!",
+  phone: "(561) 617-5901",
+  phoneHref: "tel:+15616175901",
+  email: "Info@StyleChild.com",
+  address1: "1101 Holland Drive, Suite 5",
+  address2: "Boca Raton, FL 33487",
+  mapsHref:
+    "https://www.google.com/maps/search/?api=1&query=1101+Holland+Drive+Suite+5+Boca+Raton+FL+33487",
+  instagram: "https://www.instagram.com/stylechildbyjl/",
+  facebook: "https://www.facebook.com/stylechildbyjl/",
+  shop: "https://stylechild.com",
+  serviceArea: "Boca Raton · Delray · Boynton · Parkland · Fort Lauderdale · Palm Beach",
+};
+
+// Lead form delivery. Option A (default): FormSubmit AJAX endpoint → Info@StyleChild.com.
+// FormSubmit emails a one-time activation link to that inbox on the first submission.
+// Option B: paste a GoHighLevel inline-form URL into GHL_FORM_EMBED_URL and the page
+// renders the GHL iframe instead of the native form.
+export const FORM = {
+  endpoint: "https://formsubmit.co/ajax/Info@StyleChild.com",
+  GHL_FORM_EMBED_URL: "",
+};
+
+// Google Ads — paste the conversion tag once the campaign is created.
+export const ADS = {
+  gtagId: "", // e.g. "AW-123456789"
+  conversionLabel: "", // e.g. "AbC-D_efG-h12_34-567"
+};
+
+export const NAV = [
+  { label: "The Party", href: "#party" },
+  { label: "What's Included", href: "#included" },
+  { label: "3 Ways to Party", href: "#ways" },
+  { label: "Gallery", href: "#gallery" },
+  { label: "FAQ", href: "#faq" },
+];
+
+export const HERO = {
+  kicker: "You're invited to",
+  title: "Kick Up Your Party!",
+  sub: "Boca Raton's most creative kids' party. We plan it, style it, host it and clean it up. You show up and enjoy the day with your kid.",
+  cta: "Plan My Party",
+  cta2: "See What's Included",
+};
+
+export const INTRO = {
+  eyebrow: "The Ultimate Party",
+  title: "Whatever the occasion, we've got you covered.",
+  body: [
+    "At StyleChild, custom sneakers are the party favors, and we take care of the rest. Seriously, all of it.",
+    "From paper goods and décor to glitter and games, we bring the magic. You bring the kids. The best party ever.",
+  ],
+  points: [
+    { title: "Not just birthdays", body: "Think days off, playdates, rainy-day fun, team celebrations and end-of-season parties." },
+    { title: "Your place or ours", body: "We'll host you at StyleChild HQ in Boca Raton or bring the full party straight to you." },
+    { title: "Bash in a Box", body: "Our party-in-a-box ships the fun right to your door. Wherever you live, you won't miss it." },
+  ],
+};
+
+export const WHY = {
+  eyebrow: "Why parents choose StyleChild",
+  title: "You enjoy the party. We run it.",
+  sub: "Most party planners hand you a checklist. We hand you a finished party.",
+  points: [
+    { icon: "🎯", title: "Zero work for parents", body: "Décor, supplies, hosting, games, clean-up. You send the guest list and show up." },
+    { icon: "👟", title: "A favor kids actually keep", body: "Every guest designs their own sneaker or tee and wears it home. No goodie-bag junk." },
+    { icon: "🏠", title: "Anywhere you want it", body: "Our Boca Raton HQ, your backyard or clubhouse, or shipped to any address as a Bash in a Box." },
+    { icon: "🎂", title: "Any age, any occasion", body: "Birthdays, playdates, days off, team parties and camp weeks, ages 5 to 13 and beyond." },
+  ],
+  proof: ["500+ parties", "Boca Raton since 2019", "Fully hosted"],
+};
+
+export const INCLUDED = {
+  eyebrow: "What the party brings",
+  title: "Everything. Boxed, styled and ready.",
+  sub: "Every StyleChild party is a fully produced event. Here's what's inside.",
+  items: [
+    { icon: "👟", title: "Custom Kicks Bar", body: "A plain white sneaker for every guest plus markers, stencils, beads, patches and rainbow laces. The favor they'll actually wear." },
+    { icon: "👕", title: "Tee & Tote Station", body: "White tees, bags and pouches to doodle, sticker and personalize. Every kid leaves with a one-of-a-kind outfit." },
+    { icon: "🎨", title: "All the Supplies", body: "Acrylic paint markers, letter stencils, bead bars, glitter, sticker sheets and iron-on patches. Nothing for you to buy." },
+    { icon: "🎈", title: "Décor & Paper Goods", body: "Holographic tablecloths, balloons, plates, cups, napkins and a personalized welcome sign for the birthday kid." },
+    { icon: "🎉", title: "Games & Glitter", body: "Hosted activities, music and a confetti moment so the energy never dips. We run the room." },
+    { icon: "🧹", title: "Set-Up & Clean-Up", body: "Our team arrives early, styles the space, hosts the party and leaves it spotless. You just enjoy." },
+  ],
+};
+
+export const WAYS = {
+  eyebrow: "3 ways to party",
+  title: "Pick your party style.",
+  cards: [
+    {
+      tag: "We send it",
+      title: "Bash in a Box",
+      body: "The whole party shipped to your door. Sneakers, supplies, décor and a step-by-step party plan. Wherever you live, you won't miss the fun.",
+      image: "/photos/bash-in-a-box.jpg",
+      color: "orange",
+      cta: "Get a Box Quote",
+    },
+    {
+      tag: "Come to us",
+      title: "Parties at StyleChild HQ",
+      body: "Just come ready to party and walk into a fully decorated, personalized space in Boca Raton. Graffiti walls, custom kicks bar, cake moment, all handled.",
+      image: "/photos/hq-party.jpg",
+      color: "pink",
+      cta: "Book HQ",
+    },
+    {
+      tag: "We come to you",
+      title: "Parties Wherever You Are",
+      body: "Backyard, clubhouse, park or school. We bring the full StyleChild experience straight to you, set it up, host it and pack it out.",
+      image: "/photos/outdoor-kicks.jpg",
+      color: "purple",
+      cta: "Bring the Party",
+    },
+  ],
+};
+
+export const STEPS = [
+  { n: "01", title: "Tell us about the party", body: "Kid's age, date, headcount and vibe. Two minutes, no commitment." },
+  { n: "02", title: "We design the experience", body: "Theme, décor, custom kicks bar, tees and activities. You approve, we produce." },
+  { n: "03", title: "Party day, handled", body: "We set up, host, run the games and clean up. You enjoy it with your kid." },
+];
+
+export const STATS = [
+  { value: 500, suffix: "+", label: "Parties hosted" },
+  { value: 100, suffix: "%", label: "Parent-free set-up & clean-up" },
+  { value: 1, suffix: "", label: "Custom sneaker per guest" },
+  { value: 5, suffix: "★", label: "Parents' favorite party" },
+];
+
+export const GALLERY = [
+  { src: "/photos/strip-3.jpg", alt: "Kids customizing white sneakers at a StyleChild party" },
+  { src: "/photos/hq-party.jpg", alt: "Birthday group at StyleChild HQ in Boca Raton" },
+  { src: "/photos/strip-2.jpg", alt: "Bead bar and party décor" },
+  { src: "/photos/outdoor-kicks.jpg", alt: "Custom Kicks Bar at an outdoor party" },
+  { src: "/photos/strip-4.jpg", alt: "Kids decorating t-shirts with stencils" },
+  { src: "/photos/table-party.jpg", alt: "Party table with white sneakers and markers" },
+  { src: "/photos/strip-1.jpg", alt: "Rainbow laces and markers" },
+  { src: "/photos/strip-5.jpg", alt: "Stencil doodles on a sneaker" },
+];
+
+export const TESTIMONIALS = [
+  {
+    quote: "[REPLACE — real parent review] Easiest party I've ever thrown. I didn't lift a finger and the kids still talk about their sneakers.",
+    name: "[Parent name]",
+    meta: "Boca Raton · 9th birthday",
+  },
+  {
+    quote: "[REPLACE — real parent review] They set up in our backyard, ran everything and left it cleaner than they found it.",
+    name: "[Parent name]",
+    meta: "Parkland · 7th birthday",
+  },
+  {
+    quote: "[REPLACE — real parent review] Bash in a Box was perfect for our out-of-state cousins. Everything was in there.",
+    name: "[Parent name]",
+    meta: "Shipped · playdate party",
+  },
+];
+
+export const FAQ = [
+  { q: "What ages are StyleChild parties for?", a: "Most parties are ages 5 to 13, but we host toddlers through teens (and adults!). Activities are adjusted for the group." },
+  { q: "How many kids can you host?", a: "HQ parties comfortably host up to 20 kids. Parties at your location can scale larger. Bash in a Box ships in any quantity." },
+  { q: "What do parents need to do?", a: "Send us the guest count and show up. We handle décor, supplies, hosting, games and clean-up. Cake and food can be added or you bring your own." },
+  { q: "Do you only do birthdays?", a: "No. Playdates, days off school, team parties, camp weeks, holiday events and corporate family days are all fair game." },
+  { q: "Where do you travel?", a: "Boca Raton, Delray, Boynton, Parkland, Fort Lauderdale and Palm Beach County. Farther out? Ask, or let us ship a Bash in a Box." },
+  { q: "How far ahead should I book?", a: "Weekends fill 3 to 6 weeks out. Tell us your date and we'll confirm availability within one business day." },
+];

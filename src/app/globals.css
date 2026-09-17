@@ -1,26 +1,213 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-ink: #0f0f0f;
+  --color-paper: #ffffff;
+  --color-cream: #fff8f3;
+  --color-orange: #f5874f;
+  --color-orange-deep: #f47737;
+  --color-pink: #eb1256;
+  --color-bubblegum: #ff93c6;
+  --color-purple: #8b3fc4;
+  --color-yellow: #ffd23f;
+  --color-turq: #4fd1c5;
+  --color-sky: #8fd3ff;
+  --color-mist: #f2f2f2;
+  --color-line: #e8e8e1;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-chelsea);
+  --font-body: var(--font-manrope);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: #ffffff;
+  scroll-behavior: auto;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  background: #ffffff;
+  color: #0f0f0f;
+  overflow-x: clip;
+}
+
+::selection {
+  background: rgba(245, 135, 79, 0.35);
+}
+
+.font-display {
+  font-family: var(--font-chelsea), "Chelsea Market", system-ui, sans-serif;
+}
+
+/* ---------- brand chrome ---------- */
+.eyebrow {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+/* painted highlight block, like the "YOU'RE INVITED TO" tag on the live site */
+.tag-block {
+  display: inline-block;
+  padding: 0.35em 0.9em;
+  color: #fff;
+  transform: rotate(-1.5deg);
+  clip-path: polygon(0 4%, 100% 0, 99% 100%, 1% 96%);
+}
+
+/* hand-painted spray border (the live site's frame) */
+.spray-frame {
+  position: relative;
+}
+.spray-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  padding: 10px;
+  background: linear-gradient(90deg, #c9b7ff, #ff93c6 50%, #f5874f);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  filter: blur(1.2px);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+/* doodle wallpaper (b/w coloring-book energy) */
+.doodle-bg {
+  background-color: #fff;
+  background-image:
+    radial-gradient(circle at 12px 12px, rgba(15, 15, 15, 0.08) 1.6px, transparent 2px),
+    radial-gradient(circle at 36px 40px, rgba(15, 15, 15, 0.06) 1.2px, transparent 1.8px);
+  background-size: 48px 48px, 64px 64px;
+}
+
+.checker-holo {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 60%),
+    repeating-conic-gradient(#fbe7f3 0% 25%, #ffffff 0% 50%) 50% / 40px 40px;
+}
+
+/* buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem 1.9rem;
+  border-radius: 999px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s, background 0.25s;
+  will-change: transform;
+}
+.btn-orange {
+  background: #f5874f;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(245, 135, 79, 0.35);
+}
+.btn-orange:hover {
+  background: #f47737;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(245, 135, 79, 0.45);
+}
+.btn-pink {
+  background: #eb1256;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(235, 18, 86, 0.3);
+}
+.btn-pink:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.85);
+  color: #0f0f0f;
+  border: 2px solid #0f0f0f;
+  backdrop-filter: blur(8px);
+}
+.btn-ghost:hover {
+  background: #0f0f0f;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* glass card */
+.card {
+  background: #fff;
+  border: 1px solid #e8e8e1;
+  border-radius: 1.5rem;
+  box-shadow: 0 12px 40px rgba(15, 15, 15, 0.06);
+}
+
+/* text outline for the giant watermark word */
+.outline-text {
+  -webkit-text-stroke: 2px rgba(15, 15, 15, 0.12);
+  color: transparent;
+}
+
+/* marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+.marquee-track.reverse {
+  animation-direction: reverse;
+}
+
+/* floating */
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+  50% { transform: translateY(-10px) rotate(var(--r, 0deg)); }
+}
+.floaty {
+  animation: floaty 5s ease-in-out infinite;
+}
+
+/* 3D helpers */
+.preserve-3d { transform-style: preserve-3d; }
+.backface-hidden { backface-visibility: hidden; }
+
+/* scroll progress rail */
+.rail-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(15, 15, 15, 0.2);
+  transition: background 0.3s, transform 0.3s;
+}
+.rail-dot.active {
+  background: #f5874f;
+  transform: scale(1.6);
+}
+
+/* form */
+.field {
+  width: 100%;
+  border: 2px solid #e8e8e1;
+  border-radius: 1rem;
+  padding: 0.95rem 1.1rem;
+  background: #fff;
+  font-weight: 600;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.field:focus {
+  border-color: #f5874f;
+  box-shadow: 0 0 0 4px rgba(245, 135, 79, 0.18);
+}
+.field::placeholder { color: #9a9a9a; font-weight: 500; }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track, .floaty { animation: none; }
 }
