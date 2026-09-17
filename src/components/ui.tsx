@@ -79,20 +79,24 @@ export function SectionHead({
   sub,
   align = "center",
   color = "text-orange",
+  titleColor = "text-ink",
+  subColor = "text-ink/70",
 }: {
   eyebrow: string;
   title: string;
   sub?: string;
   align?: "center" | "left";
   color?: string;
+  titleColor?: string;
+  subColor?: string;
 }) {
   return (
     <Reveal className={align === "center" ? "text-center mx-auto max-w-3xl" : "max-w-3xl"}>
       <span className={`eyebrow ${color}`}>{eyebrow}</span>
-      <h2 className="font-display mt-4 text-4xl leading-[1.02] text-ink sm:text-5xl md:text-6xl">
+      <h2 className={`font-display mt-4 text-4xl leading-[1.02] sm:text-5xl md:text-6xl ${titleColor}`}>
         {title}
       </h2>
-      {sub && <p className="mt-5 text-lg leading-relaxed text-ink/70">{sub}</p>}
+      {sub && <p className={`mt-5 text-lg leading-relaxed ${subColor}`}>{sub}</p>}
     </Reveal>
   );
 }

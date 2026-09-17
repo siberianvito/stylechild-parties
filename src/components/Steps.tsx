@@ -40,7 +40,14 @@ export default function Steps() {
       <div className="pointer-events-none absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "repeating-conic-gradient(#fff 0% 25%, transparent 0% 50%)", backgroundSize: "56px 56px" }} />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
-        <SectionHead eyebrow="How it works" title="We take the work. You take the pictures." color="text-yellow" />
+        <SectionHead
+          eyebrow="How it works"
+          title="We take the work. You take the pictures."
+          sub="Three steps from first call to the last piece of confetti."
+          color="text-yellow"
+          titleColor="text-white"
+          subColor="text-white/70"
+        />
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {STEPS.map((s, i) => (
             <Reveal key={s.n} delay={i * 0.12}>
