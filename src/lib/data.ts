@@ -36,11 +36,12 @@ export const ADS = {
 };
 
 export const NAV = [
-  { label: "The Party", href: "#party" },
-  { label: "What's Included", href: "#included" },
-  { label: "3 Ways to Party", href: "#ways" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "FAQ", href: "#faq" },
+  { label: "The Party", href: "/#party" },
+  { label: "Packages", href: "/packages/" },
+  { label: "Themes", href: "/themes/" },
+  { label: "What's Included", href: "/#included" },
+  { label: "Gallery", href: "/#gallery" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 export const HERO = {

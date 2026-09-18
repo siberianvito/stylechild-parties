@@ -16,11 +16,17 @@ export default function SmoothScroll() {
 
     // anchor links glide with Lenis
     const onClick = (e: MouseEvent) => {
-      const a = (e.target as HTMLElement).closest("a[href^='#']") as HTMLAnchorElement | null;
+      const a = (e.target as HTMLElement).closest("a[href*='#']") as HTMLAnchorElement | null;
       if (!a) return;
-      const id = a.getAttribute("href");
-      if (!id || id === "#") return;
-      const el = document.querySelector(id);
+      const href = a.getAttribute("href") ?? "";
+      const [path, hash] = href.split("#");
+      if (!hash) return;
+      // only intercept in-page anchors (same path or bare "#id")
+      const here = window.location.pathname.replace(/\/$/, "");
+      const base = (process.env.NEXT_PUBLIC_BASE_PATH ?? "").replace(/\/$/, "");
+      const target = path ? (path.startsWith(base) ? path : base + path).replace(/\/$/, "") : here;
+      if (target !== here) return;
+      const el = document.getElementById(hash);
       if (!el) return;
       e.preventDefault();
       lenis.scrollTo(el as HTMLElement, { offset: -80, duration: 1.4 });

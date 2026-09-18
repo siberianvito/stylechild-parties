@@ -1,4 +1,5 @@
 import { BRAND, NAV } from "@/lib/data";
+import Link from "next/link";
 import { asset } from "@/lib/asset";
 
 export default function Footer() {
@@ -34,9 +35,9 @@ export default function Footer() {
           <p className="eyebrow text-white/80">Parties</p>
           <ul className="mt-3 space-y-2 text-sm font-bold">
             {NAV.map((n) => (
-              <li key={n.href}><a href={n.href} className="hover:underline">{n.label}</a></li>
+              <li key={n.href}><Link href={n.href} className="hover:underline">{n.label}</Link></li>
             ))}
-            <li><a href="#book" className="hover:underline">Book Your Party</a></li>
+            <li><Link href="/#book" className="hover:underline">Book Your Party</Link></li>
           </ul>
         </div>
 

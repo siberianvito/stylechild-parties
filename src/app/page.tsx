@@ -11,6 +11,8 @@ import Steps from "@/components/Steps";
 import Gallery from "@/components/Gallery";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
+import GoodToKnow from "@/components/GoodToKnow";
+import PackagesTeaser from "@/components/PackagesTeaser";
 import LeadForm from "@/components/LeadForm";
 import Footer from "@/components/Footer";
 import { BRAND } from "@/lib/data";
@@ -28,9 +30,11 @@ export default function Page() {
       <IncludedBox />
       <Marquee reverse tone="pink" />
       <Ways />
+      <PackagesTeaser />
       <Steps />
       <Gallery />
       <Testimonials />
+      <GoodToKnow />
       <FAQ />
       <LeadForm />
       <Footer />

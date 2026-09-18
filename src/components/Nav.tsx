@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { BRAND, NAV } from "@/lib/data";
 import { asset } from "@/lib/asset";
 
@@ -8,6 +10,7 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [progress, setProgress] = useState(0);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => {
@@ -21,6 +24,11 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const isActive = (href: string) => {
+    const path = href.split("#")[0] || "/";
+    return path !== "/" && pathname?.replace(/\/$/, "") === path.replace(/\/$/, "");
+  };
+
   return (
     <>
       {/* scroll progress */}
@@ -31,11 +39,7 @@ export default function Nav() {
         />
       </div>
 
-      <header
-        className={`fixed inset-x-0 top-0 z-[60] transition-all duration-500 ${
-          scrolled ? "py-2" : "py-4"
-        }`}
-      >
+      <header className={`fixed inset-x-0 top-0 z-[60] transition-all duration-500 ${scrolled ? "py-2" : "py-4"}`}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div
             className={`flex items-center justify-between rounded-full px-4 py-2 transition-all duration-500 sm:px-5 ${
@@ -44,33 +48,32 @@ export default function Nav() {
                 : "bg-white/60 backdrop-blur-md"
             }`}
           >
-            <a href="#top" className="flex items-center gap-3" aria-label="StyleChild home">
+            <Link href="/" className="flex items-center gap-3" aria-label="StyleChild Parties home">
               <img src={asset("/logo-sm.png")} alt="StyleChild" className="h-9 w-auto sm:h-11" />
               <span className="eyebrow hidden text-ink/60 md:inline">Parties &amp; Events</span>
-            </a>
+            </Link>
 
-            <nav className="hidden items-center gap-7 lg:flex">
+            <nav className="hidden items-center gap-6 lg:flex">
               {NAV.map((n) => (
-                <a
+                <Link
                   key={n.href}
                   href={n.href}
-                  className="text-sm font-800 font-extrabold text-ink/75 transition hover:text-orange"
+                  className={`text-sm font-extrabold transition hover:text-orange ${
+                    isActive(n.href) ? "text-orange" : "text-ink/75"
+                  }`}
                 >
                   {n.label}
-                </a>
+                </Link>
               ))}
             </nav>
 
             <div className="flex items-center gap-2 sm:gap-3">
-              <a
-                href={BRAND.phoneHref}
-                className="hidden text-sm font-extrabold text-ink/80 hover:text-pink md:inline"
-              >
+              <a href={BRAND.phoneHref} className="hidden text-sm font-extrabold text-ink/80 hover:text-pink md:inline">
                 {BRAND.phone}
               </a>
-              <a href="#book" className="btn btn-orange !px-5 !py-2.5 text-sm">
+              <Link href="/#book" className="btn btn-orange !px-5 !py-2.5 text-sm">
                 Plan My Party
-              </a>
+              </Link>
               <button
                 aria-label="Menu"
                 onClick={() => setOpen((v) => !v)}
@@ -86,21 +89,17 @@ export default function Nav() {
           </div>
 
           {/* mobile sheet */}
-          <div
-            className={`overflow-hidden transition-all duration-500 lg:hidden ${
-              open ? "mt-2 max-h-96 opacity-100" : "max-h-0 opacity-0"
-            }`}
-          >
+          <div className={`overflow-hidden transition-all duration-500 lg:hidden ${open ? "mt-2 max-h-[32rem] opacity-100" : "max-h-0 opacity-0"}`}>
             <div className="card flex flex-col gap-1 p-3">
               {NAV.map((n) => (
-                <a
+                <Link
                   key={n.href}
                   href={n.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-xl px-4 py-3 font-extrabold text-ink/80 hover:bg-cream hover:text-orange"
+                  className={`rounded-xl px-4 py-3 font-extrabold hover:bg-cream hover:text-orange ${isActive(n.href) ? "text-orange" : "text-ink/80"}`}
                 >
                   {n.label}
-                </a>
+                </Link>
               ))}
               <a href={BRAND.phoneHref} className="rounded-xl px-4 py-3 font-extrabold text-pink">
                 Call {BRAND.phone}
