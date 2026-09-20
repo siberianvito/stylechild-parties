@@ -14,7 +14,7 @@ export default function Ways() {
   return (
     <section id="ways" className="relative bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <SectionHead eyebrow={WAYS.eyebrow} title={WAYS.title} sub="Same magic, three ways to get it. Every option includes the custom kicks bar, supplies and a StyleChild party plan." />
+        <SectionHead eyebrow={WAYS.eyebrow} title={WAYS.title} sub="Same magic, three ways to get it. Every option includes the creative stations for your theme, all the supplies and a StyleChild party plan." />
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {WAYS.cards.map((c, i) => {

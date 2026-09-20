@@ -77,7 +77,7 @@ export default function Intro() {
           <Reveal delay={0.15} className="relative">
             <img
               src={asset("/photos/collage.jpg")}
-              alt="StyleChild party collage: custom sneakers, bead bar and birthday kids"
+              alt="StyleChild party collage: birthday kids, bead bar and custom creations"
               className="w-full rounded-[2rem]"
               loading="lazy"
             />

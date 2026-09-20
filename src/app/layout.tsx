@@ -24,11 +24,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Kids' Party Planner Boca Raton | StyleChild Parties & Events",
   description:
-    "Fully planned kids' parties in Boca Raton & South Florida. Custom sneaker & tee stations, décor, games, set-up and clean-up handled. At our HQ, at your place, or shipped in a box. Call (561) 617-5901.",
+    "Fully planned kids' parties in Boca Raton & South Florida. Any theme your kid loves: crowns, tees, slippers, squishies, sneakers, spa days and superheroes. Décor, games, set-up and clean-up handled. At our HQ, at your place, or shipped in a box. Call (561) 617-5901.",
   keywords: [
     "kids party planner Boca Raton",
     "kids birthday party Boca Raton",
+    "kids craft party Boca Raton",
     "custom sneaker party",
+    "princess party Boca Raton",
+    "spa party for kids",
     "kids party ideas South Florida",
     "party in a box kids",
     "birthday party venue Boca Raton",
@@ -36,8 +39,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kick Up Your Party! | StyleChild Parties & Events",
     description:
-      "We plan it, style it, host it and clean it up. Custom kicks bar, tees, décor and games. Boca Raton, at your place, or shipped in a box.",
-    images: [`${basePath}/photos/outdoor-kicks.jpg`],
+      "We plan it, style it, host it and clean it up. Any theme, any craft, décor and games. Boca Raton, at your place, or shipped in a box.",
+    images: [`${basePath}/media/hero-mixed.jpg`],
     type: "website",
     locale: "en_US",
     siteName: BRAND.name,
