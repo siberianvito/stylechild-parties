@@ -49,7 +49,11 @@ export default function Footer() {
       <div className="border-t border-white/20">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 text-xs font-semibold text-white/80 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <span>© {new Date().getFullYear()} {BRAND.legal}. All rights reserved.</span>
-          <span>Be Your StyleChild™</span>
+          <span className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <Link href="/privacy/" className="hover:underline">Privacy Policy</Link>
+            <Link href="/terms/" className="hover:underline">Terms &amp; Conditions</Link>
+            <span>Be Your StyleChild™</span>
+          </span>
         </div>
       </div>
     </footer>

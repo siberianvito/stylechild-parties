@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, type FormEvent } from "react";
+import Link from "next/link";
 import { ADS, BRAND, FORM } from "@/lib/data";
 import { PACKAGES } from "@/lib/pricing";
 import { fireConfetti } from "./Confetti";
@@ -146,7 +147,11 @@ export default function PartyForm({ source = "top", title }: { source?: string; 
             <button type="submit" disabled={status === "sending"} className="btn btn-orange w-full text-base sm:w-auto disabled:opacity-60">
               {status === "sending" ? "Sending…" : "Plan My Party →"}
             </button>
-            <p className="text-xs text-ink/50">No spam. We only use this to plan your party.</p>
+            <p className="max-w-xs text-xs leading-snug text-ink/50">
+              By submitting, you agree to be contacted about your party by phone, text or email, and to our{" "}
+              <Link href="/privacy/" className="font-bold text-ink/70 underline">Privacy Policy</Link> and{" "}
+              <Link href="/terms/" className="font-bold text-ink/70 underline">Terms</Link>.
+            </p>
           </div>
           {status === "error" && (
             <p className="sm:col-span-2 rounded-xl bg-pink/10 p-3 text-sm font-bold text-pink">

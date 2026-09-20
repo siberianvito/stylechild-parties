@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Kids' Party Planner Boca Raton | StyleChild Parties & Events",
   description:
-    "Fully planned kids' parties in Boca Raton & South Florida. Any theme your kid loves: crowns, tees, slippers, squishies, sneakers, spa days and superheroes. Décor, games, set-up and clean-up handled. At our HQ, at your place, or shipped in a box. Call (561) 617-5901.",
+    "Fully planned kids' parties in Boca Raton & South Florida. Any theme your kid loves: crowns, tees, slippers, squishies, sneakers, spa days and superheroes. Décor, games, set-up and clean-up handled. At our HQ, at your place, or shipped in a box. Call (561) 726-6736.",
   keywords: [
     "kids party planner Boca Raton",
     "kids birthday party Boca Raton",
@@ -53,7 +53,7 @@ const localBusiness = {
   "@context": "https://schema.org",
   "@type": "EventVenue",
   name: "StyleChild Parties & Events",
-  telephone: "+1-561-617-5901",
+  telephone: "+1-561-726-6736",
   email: BRAND.email,
   url: siteUrl,
   address: {
