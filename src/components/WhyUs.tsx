@@ -48,8 +48,8 @@ export default function WhyUs() {
   }, []);
 
   return (
-    <section id="why" className="relative overflow-hidden bg-white pb-24 pt-4 sm:pb-32">
-      <div className="mx-auto grid max-w-7xl items-start gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:gap-14">
+    <section id="why" className="relative overflow-hidden bg-white py-20 sm:py-28">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:gap-14">
         {/* film */}
         <Reveal className="relative lg:col-span-7">
           <div className="spray-frame relative overflow-hidden rounded-[2rem] bg-cream shadow-[0_30px_80px_rgba(15,15,15,0.14)]">
@@ -93,56 +93,39 @@ export default function WhyUs() {
             </div>
           </div>
 
-          {/* contact the office */}
-          <div className="card mt-6 flex flex-col gap-5 p-6 sm:flex-row sm:items-center sm:p-7">
-            <div className="flex-1">
-              <h3 className="font-display text-2xl text-ink sm:text-3xl">{WHY.contact.title}</h3>
-              <p className="mt-2 text-[15px] leading-relaxed text-ink/70">{WHY.contact.body}</p>
-              <p className="mt-2 text-xs font-bold text-ink/45">{WHY.contact.note}</p>
-            </div>
-            <div className="flex shrink-0 flex-col gap-2 sm:items-end">
-              <a href={BRAND.phoneHref} className="btn btn-orange w-full sm:w-auto">
-                <span aria-hidden>📞</span> {WHY.contact.cta} · {BRAND.phone}
-              </a>
-              <a href="#book" className="text-sm font-extrabold text-pink underline-offset-4 hover:underline">
-                {WHY.contact.cta2} →
-              </a>
-            </div>
-          </div>
           <Sticker kind="smile" className="floaty absolute -left-5 -top-5 hidden w-16 md:block" style={{ ["--r" as string]: "-10deg" }} />
           <Sticker kind="star" className="floaty absolute -bottom-6 -right-4 hidden w-14 md:block" style={{ ["--r" as string]: "12deg", animationDelay: "-2s" }} />
         </Reveal>
 
-        {/* why us */}
+        {/* film pitch */}
         <div className="lg:col-span-5">
           <Reveal>
-            <span className="eyebrow text-orange">{WHY.eyebrow}</span>
+            <span className="eyebrow text-orange">Watch a party happen</span>
             <h2 className="font-display mt-4 text-4xl leading-[1] text-ink sm:text-5xl">{WHY.title}</h2>
             <p className="mt-4 text-lg text-ink/70">{WHY.sub}</p>
           </Reveal>
-          <ul className="mt-8 space-y-4">
-            {WHY.points.map((p, i) => (
-              <Reveal key={p.title} delay={0.08 * i}>
-                <li className="flex gap-4 rounded-2xl border border-line bg-white p-4 transition hover:-translate-y-0.5 hover:shadow-[0_14px_40px_rgba(15,15,15,0.08)]">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-cream text-2xl">{p.icon}</span>
-                  <div>
-                    <h3 className="font-display text-lg text-ink">{p.title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-ink/70">{p.body}</p>
-                  </div>
-                </li>
-              </Reveal>
-            ))}
-          </ul>
-          <Reveal delay={0.35}>
-            <div className="mt-7 flex flex-wrap items-center gap-3">
-              <a href="#book" className="btn btn-orange">Plan My Party →</a>
-              <div className="flex flex-wrap gap-2 text-xs font-extrabold text-ink/55">
-                {WHY.proof.map((t) => (
-                  <span key={t} className="rounded-full border border-line px-3 py-1">{t}</span>
-                ))}
+          <Reveal delay={0.15}>
+            <div className="card mt-7 p-6">
+              <h3 className="font-display text-2xl text-ink">{WHY.contact.title}</h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-ink/70">{WHY.contact.body}</p>
+              <div className="mt-5 flex flex-wrap items-center gap-3">
+                <a href={BRAND.phoneHref} className="btn btn-orange">
+                  <span aria-hidden>📞</span> {WHY.contact.cta} · {BRAND.phone}
+                </a>
+                <a href="#book" className="text-sm font-extrabold text-pink underline-offset-4 hover:underline">
+                  {WHY.contact.cta2} →
+                </a>
               </div>
+              <p className="mt-3 text-xs font-bold text-ink/45">{WHY.contact.note}</p>
             </div>
-            <p className="mt-3 text-xs text-ink/40">[REPLACE — confirm the party count and founding year with StyleChild]</p>
+          </Reveal>
+          <Reveal delay={0.25}>
+            <div className="mt-5 flex flex-wrap gap-2 text-xs font-extrabold text-ink/55">
+              {WHY.proof.map((t) => (
+                <span key={t} className="rounded-full border border-line px-3 py-1">{t}</span>
+              ))}
+            </div>
+            <p className="mt-2 text-xs text-ink/40">[REPLACE — confirm the party count and founding year with StyleChild]</p>
           </Reveal>
         </div>
       </div>

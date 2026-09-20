@@ -47,9 +47,9 @@ export const NAV = [
 export const HERO = {
   kicker: "You're invited to",
   title: "Kick Up Your Party!",
-  sub: "Boca Raton's most creative kids' party. We plan it, style it, host it and clean it up. You show up and enjoy the day with your kid.",
+  sub: "Sneakers, crowns, tees, slippers, squishies, spa days, superheroes. We do all types of parties. Tell us your kid's favorite theme and we'll make it happen.",
   cta: "Plan My Party",
-  cta2: "See What's Included",
+  cta2: "See Packages",
 };
 
 export const INTRO = {
@@ -65,6 +65,21 @@ export const INTRO = {
     { title: "Bash in a Box", body: "Our party-in-a-box ships the fun right to your door. Wherever you live, you won't miss it." },
   ],
 };
+
+export const SLIDER = [
+  { src: "/photos/ai-crowns.jpg", alt: "Girls wearing crowns they decorated at a StyleChild party", caption: "Crown + tiara bar" },
+  { src: "/photos/real-kids-sneakers.jpg", alt: "Kids customizing sneakers at StyleChild HQ", caption: "Sneaker styler bar" },
+  { src: "/photos/ai-slippers.jpg", alt: "Personalized fur slippers with names and icons", caption: "Custom slippers" },
+  { src: "/photos/real-spidey-boy.jpg", alt: "Spider-Man themed birthday at StyleChild HQ", caption: "Superhero bash" },
+  { src: "/photos/ai-boys.jpg", alt: "Boys showing custom sneakers and custom tees", caption: "Custom kicks + tees" },
+  { src: "/photos/real-cupcakes.jpg", alt: "DIY cupcake decorating trays", caption: "DIY cupcake decorating" },
+  { src: "/photos/real-lipgloss-bar.jpg", alt: "Lip gloss keychain and charm bar", caption: "Lip gloss + charm bar" },
+  { src: "/photos/real-birthday-girl.jpg", alt: "Birthday girl at StyleChild HQ", caption: "Parties at HQ" },
+  { src: "/photos/ai-mixed.jpg", alt: "Kids holding squishies, candy boxes and custom sweatshirts", caption: "Squishies, candy + more" },
+  { src: "/photos/real-wicked-table.jpg", alt: "Wicked themed sneaker party table", caption: "Any theme they love" },
+  { src: "/photos/real-spidey-boxes.jpg", alt: "Personalized Spider-Man party boxes", caption: "Personalized everything" },
+  { src: "/photos/real-hq-booth.jpg", alt: "StyleChild heat-transfer booth at an event", caption: "Events + activations" },
+];
 
 export const WHY = {
   eyebrow: "Why parents choose StyleChild",

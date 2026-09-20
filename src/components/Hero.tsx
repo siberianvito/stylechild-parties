@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 import { motion } from "motion/react";
 import { HERO, BRAND } from "@/lib/data";
 import { asset } from "@/lib/asset";
@@ -16,29 +17,37 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="top" className="relative isolate min-h-[100svh] overflow-hidden bg-white">
-      {/* still header image */}
-      <div className="absolute inset-0">
+    <section id="top" className="relative isolate overflow-hidden bg-white md:min-h-[100svh]">
+      {/* phones: photo on top, copy below (keeps every face visible) */}
+      <div className="relative pt-20 md:hidden">
         <img
-          src={asset("/media/hero-poster.jpg")}
-          alt="Kids customizing sneakers at an outdoor StyleChild party"
-          className="h-full w-full object-cover"
+          src={asset("/media/hero-mixed.jpg")}
+          alt="Kids at a StyleChild party showing off custom crowns, tees, slippers, squishies and sneakers"
+          className="aspect-[4/3] w-full object-cover object-top"
+          fetchPriority="high"
+        />
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent" />
+      </div>
+
+      {/* tablet/desktop: full-bleed still */}
+      <div className="absolute inset-0 hidden md:block">
+        <img
+          src={asset("/media/hero-mixed.jpg")}
+          alt="Kids at a StyleChild party showing off custom crowns, tees, slippers, squishies and sneakers"
+          className="h-full w-full object-cover object-top"
           fetchPriority="high"
         />
         {/* readability gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/30 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/10 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-[58%] bg-gradient-to-t from-white via-white/90 via-55% to-transparent" />
       </div>
 
       {/* floating stickers */}
-      <Sticker kind="star" className="floaty absolute left-[6%] top-[18%] hidden w-16 md:block" style={{ ["--r" as string]: "-12deg" }} />
-      <Sticker kind="bolt" className="floaty absolute right-[9%] top-[22%] hidden w-14 md:block" style={{ ["--r" as string]: "14deg", animationDelay: "-1.6s" }} />
-      <Sticker kind="peace" className="floaty absolute right-[18%] bottom-[24%] hidden w-14 lg:block" style={{ ["--r" as string]: "-8deg", animationDelay: "-3s" }} />
-      <Sticker kind="heart" className="floaty absolute left-[38%] top-[14%] hidden w-12 lg:block" style={{ ["--r" as string]: "10deg", animationDelay: "-2.2s" }} />
-
+      <Sticker kind="star" className="floaty absolute left-[3%] bottom-[30%] hidden w-16 md:block" style={{ ["--r" as string]: "-12deg" }} />
+      <Sticker kind="bolt" className="floaty absolute right-[3%] bottom-[32%] hidden w-14 md:block" style={{ ["--r" as string]: "14deg", animationDelay: "-1.6s" }} />
+            
       {/* copy */}
-      <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-4 pb-16 pt-32 sm:px-6 md:justify-center md:pb-24">
-        <div className="max-w-2xl">
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-end px-4 pb-12 pt-4 text-center sm:px-6 md:min-h-[100svh] md:pb-16 md:pt-32">
+        <div className="max-w-4xl">
           <motion.span
             initial={{ opacity: 0, y: 20, rotate: -4 }}
             animate={{ opacity: 1, y: 0, rotate: -1.5 }}
@@ -51,7 +60,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
-            className="font-display mt-4 text-[13vw] leading-[0.92] text-orange drop-shadow-[0_2px_0_rgba(255,255,255,0.9)] sm:text-7xl md:text-8xl lg:text-[7.2rem]"
+            className="font-display mt-3 text-[12vw] leading-[0.95] text-orange drop-shadow-[0_2px_0_rgba(255,255,255,0.9)] sm:text-6xl md:text-7xl lg:text-[5.5rem]"
           >
             {HERO.title}
           </motion.h1>
@@ -59,7 +68,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-6 max-w-xl text-lg font-semibold leading-relaxed text-ink/85 sm:text-xl"
+            className="mx-auto mt-4 max-w-2xl text-base font-semibold leading-relaxed text-ink/85 sm:text-lg"
           >
             {HERO.sub}
           </motion.p>
@@ -67,21 +76,21 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="mt-8 flex flex-wrap items-center gap-3"
+            className="mt-6 flex flex-wrap items-center justify-center gap-3"
           >
             <a href="#book" className="btn btn-orange text-base">
               {HERO.cta}
               <span aria-hidden>→</span>
             </a>
-            <a href="#included" className="btn btn-ghost text-base">
+            <Link href="/packages/" className="btn btn-ghost text-base">
               {HERO.cta2}
-            </a>
+            </Link>
           </motion.div>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.3 }}
-            className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-bold text-ink/60"
+            className="mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-bold text-ink/60"
           >
             <span>★★★★★ Parent-approved</span>
             <span>Boca Raton HQ · We travel · We ship</span>
@@ -90,17 +99,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* scroll cue */}
-      <motion.a
-        href="#party"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.8 }}
-        className="eyebrow absolute bottom-6 left-1/2 hidden -translate-x-1/2 items-center gap-2 text-ink/60 md:flex"
-      >
-        Plan your party
-        <span className="inline-block animate-bounce">↓</span>
-      </motion.a>
     </section>
   );
 }

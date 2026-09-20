@@ -165,6 +165,21 @@ body {
   animation-direction: reverse;
 }
 
+/* photo slider: slow continuous slide, 3-up on desktop */
+@keyframes slide-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 0.75rem)); }
+}
+.slider-track {
+  animation: slide-x 120s linear infinite;
+  will-change: transform;
+}
+.slider-mask:hover .slider-track { animation-play-state: paused; }
+.slider-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+
 /* floating */
 @keyframes floaty {
   0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
@@ -210,4 +225,6 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .marquee-track, .floaty { animation: none; }
+  .slider-track { animation: none; }
+  .slider-mask { overflow-x: auto; }
 }

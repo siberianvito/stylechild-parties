@@ -3,6 +3,8 @@ import Confetti from "@/components/Confetti";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
+import BookTop from "@/components/BookTop";
+import PhotoSlider from "@/components/PhotoSlider";
 import Intro from "@/components/Intro";
 import WhyUs from "@/components/WhyUs";
 import IncludedBox from "@/components/IncludedBox";
@@ -25,6 +27,8 @@ export default function Page() {
       <Nav />
       <Hero />
       <Marquee />
+      <BookTop />
+      <PhotoSlider />
       <Intro />
       <WhyUs />
       <IncludedBox />
