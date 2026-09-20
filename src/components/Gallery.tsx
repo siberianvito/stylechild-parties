@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { GALLERY } from "@/lib/data";
 import { asset } from "@/lib/asset";
 import { fireConfetti } from "./Confetti";
+import Link from "next/link";
 import { SectionHead } from "./ui";
 
 // Confetti transition: as the gallery enters, confetti cannons fire and the photos
@@ -44,7 +45,9 @@ export default function Gallery() {
     };
   }, []);
 
-  const cols = [GALLERY.slice(0, 3), GALLERY.slice(3, 5), GALLERY.slice(5, 8)];
+  // four columns, photos dealt round-robin so real + brand shots interleave
+  const COLS = 4;
+  const cols = Array.from({ length: COLS }, (_, c) => GALLERY.filter((_, i) => i % COLS === c));
 
   return (
     <section id="gallery" ref={rootRef} className="relative overflow-hidden checker-holo py-24 sm:py-32">
@@ -52,16 +55,16 @@ export default function Gallery() {
         <SectionHead
           eyebrow="Real parties"
           title="This is what a StyleChild party looks like."
-          sub="Real kids, real sneakers, real glitter on the floor (we clean that up too)."
+          sub="Real kids, real themes, real glitter on the floor (we clean that up too)."
           color="text-purple"
         />
 
-        <div className="mt-14 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
+        <div className="mt-14 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
           {cols.map((col, i) => (
             <div
               key={i}
               ref={(el) => { if (el) colsRef.current[i] = el; }}
-              className={`flex flex-col gap-4 md:gap-6 ${i === 1 ? "md:pt-16" : ""}`}
+              className={`flex flex-col gap-4 lg:gap-6 ${i % 2 === 1 ? "lg:pt-16" : ""}`}
             >
               {col.map((g, j) => (
                 <figure
@@ -79,6 +82,10 @@ export default function Gallery() {
               ))}
             </div>
           ))}
+        </div>
+
+        <div className="relative z-10 mt-16 flex justify-center">
+          <Link href="/gallery/" className="btn btn-orange">See the full gallery →</Link>
         </div>
       </div>
     </section>

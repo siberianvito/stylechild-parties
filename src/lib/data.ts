@@ -40,7 +40,7 @@ export const NAV = [
   { label: "Packages", href: "/packages/" },
   { label: "Themes", href: "/themes/" },
   { label: "What's Included", href: "/#included" },
-  { label: "Gallery", href: "/#gallery" },
+  { label: "Gallery", href: "/gallery/" },
   { label: "FAQ", href: "/#faq" },
 ];
 
@@ -161,12 +161,20 @@ export const STATS = [
 
 export const GALLERY = [
   { src: "/photos/strip-3.jpg", alt: "Kids customizing white sneakers at a StyleChild party" },
+  { src: "/photos/real-spidey-boy.jpg", alt: "Spider-Man themed birthday at StyleChild HQ" },
   { src: "/photos/hq-party.jpg", alt: "Birthday group at StyleChild HQ in Boca Raton" },
+  { src: "/photos/real-cupcakes.jpg", alt: "DIY cupcake decorating trays at a Wicked themed party" },
+  { src: "/photos/real-kids-sneakers.jpg", alt: "Kids decorating sneakers together at StyleChild HQ" },
   { src: "/photos/strip-2.jpg", alt: "Bead bar and party décor" },
+  { src: "/photos/real-lipgloss-bar.jpg", alt: "Lip gloss keychain and charm bar set-up" },
   { src: "/photos/outdoor-kicks.jpg", alt: "Custom Kicks Bar at an outdoor party" },
+  { src: "/photos/real-birthday-girl.jpg", alt: "Birthday girl in front of the StyleChild graffiti wall" },
   { src: "/photos/strip-4.jpg", alt: "Kids decorating t-shirts with stencils" },
+  { src: "/photos/real-wicked-table.jpg", alt: "Wicked themed sneaker party table" },
   { src: "/photos/table-party.jpg", alt: "Party table with white sneakers and markers" },
+  { src: "/photos/real-spidey-boxes.jpg", alt: "Personalized Spider-Man party boxes" },
   { src: "/photos/strip-1.jpg", alt: "Rainbow laces and markers" },
+  { src: "/photos/real-hq-booth.jpg", alt: "StyleChild heat-transfer booth at an event" },
   { src: "/photos/strip-5.jpg", alt: "Stencil doodles on a sneaker" },
 ];
 
